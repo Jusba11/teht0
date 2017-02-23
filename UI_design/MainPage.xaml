@@ -5,9 +5,56 @@
     xmlns:local="using:UI_design"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
-
+    mc:Ignorable="d"
+    Width="800" Height="600"
+    >
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <!-- left column-->
+        <StackPanel Grid.Column="0" Margin="10,10">
+            <TextBlock Text="Employee basic info:"
+                       Margin="0, 0, 0, 10" />
+            <!-- name -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <TextBlock Text="Name:" Width="100px"/>
+                <TextBox x:Name="nameTextbox" Width="150px"/>
+            </StackPanel>
+            <!-- email -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <TextBlock Text="Email:" Width="100px"/>
+                <TextBox x:Name="emailTextbox" Width="150px"/>
+            </StackPanel>
+            <!-- password -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <TextBlock Text="Password:" Width="100px"/>
+                <PasswordBox x:Name="passwordTextbox" Width="150px"/>
+            </StackPanel>
+            <TextBlock Text="User level: " Margin="0,10,0,10"/>
+        
+            <!-- user level checkboxes-->
+            <StackPanel Orientation="Horizontal">
+
+                <CheckBox x:Name="normalUser"
+                          Content="Normal user"
+                          IsChecked="True" />
+                <CheckBox x:Name="adminUser"
+                          Content="Admin"/>
+            </StackPanel>
+            <Button x:Name="saveBtn" Content="Save" Margin="0,10" Click="saveBtn_Click"/>
+        </StackPanel>
+        
+        <!-- right column -->
+        <StackPanel Grid.Column="1" Margin="10,10">
+            <TextBlock Text="Image:"/>
+
+            <Image Source="Assets/blyat.jpg" Width="75" HorizontalAlignment="Left" Margin="0,10,0,10"/>
+
+            <Button Content="Browse" Margin="0,10"/>
+        </StackPanel>
     </Grid>
 </Page>
